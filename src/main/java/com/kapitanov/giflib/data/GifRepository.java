@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+Gif repository. Stores all different gifs in an Array list constant
+ */
+
 @Component
 public class GifRepository {
     private static final List<Gif> ALL_GIFS = Arrays.asList(

@@ -2,6 +2,11 @@ package com.kapitanov.giflib.model;
 
 import java.time.LocalDate;
 
+/*
+Simple POJO file designed to store data
+ */
+
+
 public class Gif {
     private String name;
     private LocalDate dateUploaded;

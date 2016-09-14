@@ -6,6 +6,10 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+Category repository. Stores all categories in an Array list constant
+ */
+
 @Component
 public class CategoryRepository {
     private final static List<Category> ALL_CATEGORIES = Arrays.asList(

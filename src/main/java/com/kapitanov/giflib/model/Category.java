@@ -1,5 +1,9 @@
 package com.kapitanov.giflib.model;
 
+/*
+Simple POJO file designed to store data
+ */
+
 public class Category {
     private int id;
     private String name;

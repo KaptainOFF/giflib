@@ -15,16 +15,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+/*
+Controller file. Handles requests and responses to pages: home, favorites, categories, category and gif details
 
+ */
 @Controller
 public class GifController {
 
+    // Initiates gif repository
     @Autowired
     private GifRepository gifRepo;
 
+    // Initiates category repository
     @Autowired
     private CategoryRepository categoryRepository;
 
+    //Handles requests to home page
     @RequestMapping("/")
     public String home(ModelMap modelMap) {
         List<Gif> allGifs = gifRepo.getAllGifs();
@@ -32,6 +38,7 @@ public class GifController {
         return "home";
     }
 
+    //Handles requests to favorites page
     @RequestMapping("/favorites")
     public String favorites(ModelMap modelMap) {
         List<Gif> gifs = gifRepo.findFavorites();
@@ -39,6 +46,7 @@ public class GifController {
         return "favorites";
     }
 
+    //Handles requests to categories page
     @RequestMapping("/categories")
     public String categories(ModelMap modelMap) {
         List<Category> categories = categoryRepository.getAllCategories();
@@ -46,6 +54,7 @@ public class GifController {
         return "categories";
     }
 
+    //Handles requests to specific category
     @RequestMapping("/category/{id}")
     public String category(@PathVariable int id,ModelMap modelMap) {
         Category category = categoryRepository.findById(id);
@@ -57,6 +66,7 @@ public class GifController {
         return "category";
     }
 
+    //Handles requests to individual gif page
     @RequestMapping("/gif/{name}")
     public String gifDetails(@PathVariable String name, ModelMap modelMap) {
         Gif gif = gifRepo.getGifByName(name);
@@ -64,6 +74,7 @@ public class GifController {
         return "gif-details";
     }
 
+    //Handles search requests
     @RequestMapping(value = "/search", params = {"search"})
     public @ResponseBody String searchResults(ModelMap modelMap, @RequestParam(value = "search") String search) {
         List<Gif> results = gifRepo.searchMethod(search);
